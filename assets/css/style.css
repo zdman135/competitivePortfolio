@@ -893,3 +893,12 @@ a.re-button {
 .categories ul li a:hover {
     color: #008181;
 }
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h4 {
+    color: #008181
+}
