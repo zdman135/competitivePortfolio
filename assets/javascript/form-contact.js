@@ -15,13 +15,17 @@ $(document).ready(function() {
             "message_html": $('#description').val()
          }
         
-        emailjs.send('gmail', 'template_X4CCpTcv', template_params)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            clearFields();
-        }, function(error) {
-            clearFields();
-            console.log('FAILED...', error);
-        });
+         if (template_params.reply_to == "" || template_params.from_name == "" || template_params.message_html == "") {
+             alert("Please Fill All Fields");
+         } else {
+            emailjs.send('gmail', 'template_X4CCpTcv', template_params)
+            .then(function(response) {
+                alert("Message Sent");
+                clearFields();
+            }, function(error) {
+                clearFields();
+                console.log('FAILED...', error);
+            });    
+         }
     });
 });
